@@ -19,8 +19,9 @@ function setup() {
   createCanvas(500,500);
 
   
-  dog = createSprite(250,250);
+  dog = createSprite(250,280);
   dog.addImage(dogImg);
+  dog.scale = 0.2;
   
   foodStock = database.ref('Food');
   foodStock.on("value",readStock);
@@ -33,16 +34,16 @@ function draw() {
 
   if(keyWentDown(UP_ARROW)){
     writeStock(foodS);
-    dog.addImage(dogHappy);
+    dog.addImage(happyDog);
   }
 
 
   drawSprites();
   //add styles here
-  textSize(50);
+  textSize(20);
   fill("white");
-  text("Note =  Press UP_ARROW to feed Drago Milk",250,250);
-  text("Food remaining:",+foodS,170,200)
+  text("Note =  Press UP_ARROW to feed Drago Milk",50,30);
+  text("Food remaining:"+foodS,150,170)
 
 }
 
